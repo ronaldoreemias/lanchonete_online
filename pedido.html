@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>pedidos</title>
+    <style>
+        .pedido {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pedido p {
+    margin: 5px 0;
+}
+
+.pedido p:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.pedido p:nth-child(2) {
+    color: #666;
+}
+
+    </style>
+</head>
+<body >
+    <header>
+        <h1 >historico de pedidos</h1>
+    </header>
+    <div class="procurando">
+        <input type="text" id="procurar" placeholder="Procurar..." style="width: 70%; height: 40px;">
+        <button style="height: 55px;" >Procurar</button>
+    </div>
+
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <button id="enviarWhatsapp" style="height: 30px; background-color: green; margin: 30px; border-radius: 10px; color: #ddd;">Enviar Pedidos para WhatsApp</button>
+    </div>
+
+
+    <main  style="height: calc(100vh - 160px); overflow-y: auto;">
+        <div class="histórico_de_pedidos">
+            <div id="pedido">
+
+            </div>
+        </div>
+    </main>
+    <footer >
+        <div >
+            <a href="https://ronaldoreemias.github.io/lanchonete_online/">
+                <button>Menu</button>
+            </a>
+            <button>Pedidos</button>
+            <a href="https://www.instagram.com/cooperi9_/">
+                <button>instagram</button>
+            </a>
+        </div>
+    </footer>
+    <div id="popup" class="popup">
+        <button id="closePopup" >Fechar</button>
+        <div id="popupContent"></div>
+        <button id="saveData" style="background-color: green; margin-top: 200px;">enviar pedido</button>
+    </div>
+    <script>
+// Função para carregar pedidos do local storage e exibi-los
+function carregarPedidos() {
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    const historicoDiv = document.querySelector('.histórico_de_pedidos');
+    historicoDiv.innerHTML = ''; // Limpa o conteúdo existente
+    
+    if (historicoDiv) {
+        pedidos.forEach((pedido, index) => {
+            const pedidoDiv = document.createElement('div');
+            pedidoDiv.className = 'pedido';
+            pedidoDiv.innerHTML = `
+                <p>Pedido: ${pedido.content}</p>
+                <p>Data: ${pedido.timestamp}</p>
+                <button class="delete-pedido" onclick="excluirPedido(${index})">Excluir</button>
+            `;
+            historicoDiv.appendChild(pedidoDiv);
+        });
+    }
+}
+
+// Função para excluir um pedido
+function excluirPedido(index) {
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    pedidos.splice(index, 1);
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+    carregarPedidos();
+}
+
+// Função para enviar pedidos para o WhatsApp
+document.getElementById('enviarWhatsapp').addEventListener('click', () => {
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    const mensagem = pedidos.map(pedido => `Pedido: ${pedido.content}\nData: ${pedido.timestamp}`).join('\n\n');
+    const numeroWhatsApp = '5582988873225';
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+});
+
+// Chama a função ao carregar a página
+window.onload = carregarPedidos;
+
+
+    </script>
+</body>
+</html>
