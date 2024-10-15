@@ -42,7 +42,7 @@ header h1 {
 
 /* Main */
 main {
-    background-color: rgb(56, 161, 15);
+    
     padding: 16px;
     height: calc(100vh - 160px);
     overflow-y: auto;
