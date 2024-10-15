@@ -72,7 +72,9 @@
     <footer >
         <div >
             <button>Menu</button>
-            <button>Pedidos</button>
+            <a href="pedido.html">
+                <button>Pedidos</button>
+            </a>
             <a href="https://www.instagram.com/cooperi9_/">
                 <button>instagram</button>
             </a>
@@ -84,28 +86,28 @@
         <button id="saveData" style="background-color: green; margin-top: 200px;">enviar pedido</button>
     </div>
     <script>
-        document.querySelectorAll('.option').forEach(option => {
-            option.addEventListener('click', () => {
-                const popup = document.getElementById('popup');
-                const content = option.getAttribute('data-content');
-                document.getElementById('popupContent').innerHTML = content;
-                document.getElementById('saveData').setAttribute('data-content', content);
-                popup.style.display = 'block';
-            });
-        });
+       document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const content = option.getAttribute('data-content');
+        document.getElementById('popupContent').innerHTML = content;
+        document.getElementById('saveData').setAttribute('data-content', content);
+        popup.style.display = 'block';
+    });
+});
 
-        document.getElementById('closePopup').addEventListener('click', () => {
-            document.getElementById('popup').style.display = 'none';
-        });
+document.getElementById('closePopup').addEventListener('click', () => {
+    document.getElementById('popup').style.display = 'none';
+});
 
-        document.getElementById('saveData').addEventListener('click', () => {
-            const data = document.getElementById('saveData').getAttribute('data-content');
-            localStorage.setItem('pedido', data);
-            document.getElementById('popup').style.display = 'none';
-            alert('Dados salvos!');
-        });
-
-        /* Adicione isso no script existente no final do arquivo */
+document.getElementById('saveData').addEventListener('click', () => {
+    const data = document.getElementById('saveData').getAttribute('data-content');
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    pedidos.push({ content: data, timestamp: new Date().toLocaleString() });
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+    document.getElementById('popup').style.display = 'none';
+    alert('Dados salvos!');
+});
 
 document.getElementById('procurar').addEventListener('input', () => {
     const searchTerm = document.getElementById('procurar').value.toLowerCase();
@@ -118,6 +120,7 @@ document.getElementById('procurar').addEventListener('input', () => {
         }
     });
 });
+
     </script>
 </body>
 </html>
