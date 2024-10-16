@@ -3,107 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>pedidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        .pedido {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        /* Estilizações Gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
+/* Popup */
+#popup {
+    display: none;
+}
+
+/* Pedido */
 .pedido p {
     margin: 5px 0;
 }
-
 .pedido p:first-child {
     font-weight: bold;
     font-size: 1.1em;
 }
-
 .pedido p:nth-child(2) {
     color: #666;
 }
 
-    </style>
-</head>
-<body >
-    <header>
-        <h1 >historico de pedidos</h1>
-    </header>
-    <div style="width: 100%; display: flex; justify-content: center;">
-        <button id="enviarWhatsapp" style="height: 40px; background-color: green; margin: 30px; border-radius: 10px; color: #ddd;">Enviar Pedidos para WhatsApp</button>
-    </div>
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1a202c;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+footer button, footer a {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+    display: inline-block;
+    width: 30%;
+}
 
-    <main  style="height: calc(100vh - 160px); overflow-y: auto;">
-        <div class="histórico_de_pedidos">
-            <div id="pedido">
+footer button:hover, footer a:hover {
+    background-color: #e64a19;
+}
 
-            </div>
-        </div>
-    </main>
-    <footer >
-        <div class="navegação">
-            <a href="https://ronaldoreemias.github.io/lanchonete_online/">
-                <button>Menu</button>
-            </a>
-            <button>Pedidos</button>
-            <a href="https://www.instagram.com/cooperi9_/">
-                <button>instagram</button>
-            </a>
-        </div>
-    </footer>
-    <div id="popup" class="popup">
-        <button id="closePopup" >Fechar</button>
-        <div id="popupContent"></div>
-        <button id="saveData" style="background-color: green; margin-top: 200px;">enviar pedido</button>
-    </div>
-    <script>
-// Função para carregar pedidos do local storage e exibi-los
-function carregarPedidos() {
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-    const historicoDiv = document.querySelector('.histórico_de_pedidos');
-    historicoDiv.innerHTML = ''; // Limpa o conteúdo existente
-    
-    if (historicoDiv) {
-        pedidos.forEach((pedido, index) => {
-            const pedidoDiv = document.createElement('div');
-            pedidoDiv.className = 'pedido';
-            pedidoDiv.innerHTML = `
-                <p>Pedido: ${pedido.content}</p>
-                <p>Data: ${pedido.timestamp}</p>
-                <button class="delete-pedido" onclick="excluirPedido(${index})">Excluir</button>
-            `;
-            historicoDiv.appendChild(pedidoDiv);
-        });
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+    .bg-cover {
+        height: 100px;
+    }
+
+    footer {
+        display: flex;
+        gap: 10px;
+    }
+
+    footer button, footer a {
+        width: 80%;
     }
 }
 
-// Função para excluir um pedido
-function excluirPedido(index) {
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-    pedidos.splice(index, 1);
-    localStorage.setItem('pedidos', JSON.stringify(pedidos));
-    carregarPedidos();
-}
+    </style>
+    <title>Pedidos</title>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-900 text-white p-4 text-center">
+        <h1 class="text-2xl font-bold">Histórico de Pedidos</h1>
+    </header>
+    <div class="flex justify-center my-4">
+        <button id="enviarWhatsapp" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow">Enviar Pedidos para WhatsApp</button>
+    </div>
+    <main class="h-screen overflow-y-auto">
+        <div class="container mx-auto p-4">
+            <div class="histórico_de_pedidos grid gap-4">
+                <div id="pedido"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-blue-900 text-white p-4 fixed bottom-0 w-full flex justify-around">
+        <a href="https://ronaldoreemias.github.io/lanchonete_online/" class="bg-blue-700 text-white px-4 py-2 rounded-lg shadow">Menu</a>
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg shadow">Pedidos</button>
+        <a href="https://www.instagram.com/cooperi9_/" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow">Instagram</a>
+    </footer>
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+            <button id="closePopup" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow">Fechar</button>
+            <div id="popupContent" class="mt-4"></div>
+            <button id="saveData" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow mt-4">Enviar Pedido</button>
+        </div>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Função para carregar pedidos do local storage e exibi-los
+        function carregarPedidos() {
+            const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+            const historicoDiv = document.querySelector('.histórico_de_pedidos');
+            historicoDiv.innerHTML = ''; // Limpa o conteúdo existente
+        
+            if (historicoDiv) {
+                pedidos.forEach((pedido, index) => {
+                    const pedidoDiv = document.createElement('div');
+                    pedidoDiv.className = 'bg-white p-4 rounded-lg shadow-md pedido';
+                    pedidoDiv.innerHTML = `
+                        <p class="font-bold text-lg">Pedido: ${pedido.content}</p>
+                        <p class="text-gray-600">Data: ${pedido.timestamp}</p>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-lg shadow mt-2 delete-pedido" onclick="excluirPedido(${index})">Excluir</button>
+                    `;
+                    historicoDiv.appendChild(pedidoDiv);
+                });
+            }
+        }
 
-// Função para enviar pedidos para o WhatsApp
-document.getElementById('enviarWhatsapp').addEventListener('click', () => {
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-    const mensagem = pedidos.map(pedido => `Pedido: ${pedido.content}\nData: ${pedido.timestamp}`).join('\n\n');
-    const numeroWhatsApp = '5582988873225';
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
-});
+        // Função para excluir um pedido
+        function excluirPedido(index) {
+            const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+            pedidos.splice(index, 1);
+            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            carregarPedidos();
+        }
 
-// Chama a função ao carregar a página
-window.onload = carregarPedidos;
+        // Função para enviar pedidos para o WhatsApp
+        document.getElementById('enviarWhatsapp').addEventListener('click', () => {
+            const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+            const mensagem = pedidos.map(pedido => `Pedido: ${pedido.content}\nData: ${pedido.timestamp}`).join('\n\n');
+            const numeroWhatsApp = '5582988873225';
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        });
 
-
+        // Chama a função ao carregar a página
+        window.onload = carregarPedidos;
     </script>
 </body>
 </html>
