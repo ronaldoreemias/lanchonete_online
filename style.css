@@ -1,6 +1,6 @@
 /* Estilizações Gerais */
 body {
-    background-color: White;
+    background-color: #e2e8f0;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body {
 /* Cabeçalho */
 header {
     height: 40px;
-    background-color: black;
+    background-color: rgb(31, 11, 11);
     color: white;
     text-align: center;
     padding: 16px 0;
