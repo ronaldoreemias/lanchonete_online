@@ -3,132 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>lanchonete online</title>
+    <title>Lanchonete Esportiva</title>
 </head>
-<body >
-    <header>
-        <h1 >lanchonete modelo</h1>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-900 text-white p-4 text-center">
+        <h1 class="text-2xl font-bold">Lanchonete Esportiva</h1>
     </header>
-    <div class="procurando">
-        <input type="text" id="procurar" placeholder="Procurar..." style="width: 70%; height: 18px; background-color: beige; border: 4px;">
-        <button style="height: 35px;" >pesquisar</button>
+    <div class="container mx-auto mt-4">
+        <div class="flex justify-center mb-4">
+            <input type="text" id="procurar" class="bg-white shadow border rounded-lg py-2 px-4 w-4/5" placeholder="Procurar...">
+            <button class="bg-blue-700 text-white ml-2 px-4 py-2 rounded-lg shadow">Pesquisar</button>
+        </div>
+                <main class="overflow-y-auto h-screen">
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md option" data-content="x alcatra: pão bola com carne de alcatra, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                            <img src="img/R.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                            <div class="mt-2">
+                                <h2 class="text-xl font-bold text-blue-900">X Alcatra</h2>
+                                <p>hamburguer</p>
+                                <p>vem com: pão bola com carne de alcatra</p>
+                                <p>hamburguer, queijo prato</p>
+                                <p>tomate, cebola, alface, molho especial</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md option" data-content="x picanha vem com: pão bola com carne de picanha, hamburguer, queijo cheddar, tomate, cebola, alface, molho especial">
+                            <img src="img/x picanha.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                            <div class="mt-2">
+                                <h2 class="text-xl font-bold text-blue-900">X Picanha</h2>
+                                <p>hamburguer</p>
+                                <p>vem com: pão bola com carne de picanha</p>
+                                <p>hamburguer, queijo cheddar</p>
+                                <p>tomate, cebola, alface, molho especial</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md option" data-content="x frango vem com: pão bola com frango desfiado, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                            <img src="img/x frango.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                            <div class="mt-2">
+                                <h2 class="text-xl font-bold text-blue-900">X Frango</h2>
+                                <p>hamburguer</p>
+                                <p>vem com: pão bola com frango desfiado</p>
+                                <p>hamburguer, queijo prato</p>
+                                <p>tomate, cebola, alface, molho especial</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md option" data-content="x calabresa vem com: pão bola com calabresa, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                            <img src="img/x calabresa.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                            <div class="mt-2">
+                                <h2 class="text-xl font-bold text-blue-900">X Calabresa</h2>
+                                <p>hamburguer</p>
+                                <p>vem com: pão bola com calabresa</p>
+                                <p>hamburguer, queijo prato</p>
+                                <p>tomate, cebola, alface, molho especial</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md option" data-content="vegetariano vem com: pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                            <img src="img/vegetariano.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                            <div class="mt-2">
+                                <h2 class="text-xl font-bold text-blue-900">Vegetariano</h2>
+                                <p>hamburguer</p>
+                                <p>vem com: pão bola com bife de soja</p>
+                                <p>hamburguer, queijo prato</p>
+                                <p>tomate, cebola, alface, molho especial</p>
+                            </div>
+                        </div>
+                    </div>
+        </main>
+        <footer class="bg-blue-900 text-white p-4 fixed bottom-0 w-full flex justify-around">
+            <button class="bg-blue-700 text-white px-4 py-2 rounded-lg shadow">Menu</button>
+            <a href="pedido.html" class="bg-yellow-500 text-white px-4 py-2 rounded-lg shadow">Lista de Pedidos</a>
+            <a href="https://www.instagram.com/cooperi9_/" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow">Instagram</a>
+        </footer>
     </div>
-    <main  style="height: calc(100vh - 160px); overflow-y: auto;">
-        <div >
-            <div class="option" data-content="x alcatra: pão bola com carne de alcatra, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
-                <div>
-                    <img src="img/R.jfif" alt="sanduiche" >
-                </div>
-                <h2 >x alcatra</h2>
-                <p>hamburguer</p>
-                <p>vem com : pão bola com carne de alcatra</p>
-                <p>hamburguer, queijo prato</p>
-                <p>tomate, cebola, alface, molho especial</p>
-            </div>
-            <div class="option" data-content="x picanha vem com : pão bola com carne de picanha, hamburguer, queijo cheddar, tomate, cebola, alface, molho especial">
-                <div>
-                    <img src="img/x picanha.jfif" alt="sanduiche">
-                </div>
-                <h2>x picanha</h2>
-                <p>hamburguer</p>
-                <p>vem com : pão bola com carne de picanha</p>
-                <p>hamburguer, queijo cheddar</p>
-                <p>tomate, cebola, alface, molho especial</p>
-            </div>
-            <div class="option" data-content="x frango vem com : pão bola com frango desfiado, hamburguer, queijo prato, tomate, cebola, alface, molho especial  ">
-                <div>
-                    <img src="img/x frango.jfif" alt="sanduiche" >
-                </div>
-                <h2>x frango</h2>
-                <p>hamburguer</p>
-                <p>vem com : pão bola com frango desfiado</p>
-                <p>hamburguer, queijo prato</p>
-                <p>tomate, cebola, alface, molho especial</p>
-            </div>
-            <div class="option" data-content="x calabresa vem com : pão bola com calabresa, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
-                <div >
-                    <img src="img/x calabresa.jfif" alt="sanduiche" >
-                </div>
-                <h2 >x calabresa</h2>
-                <p>hamburguer</p>
-                <p>vem com : pão bola com calabresa</p>
-                <p>hamburguer, queijo prato</p>
-                <p>tomate, cebola, alface, molho especial</p>
-            </div>
-            <div class="option" data-content="vegetariano vem com : pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial ">
-                <div>
-                    <img src="img/vegetariano.jfif" alt="sanduiche">
-                </div>
-                <h2>vegetariano</h2>
-                <p>hamburguer</p>
-                <p>vem com : pão bola com bife de soja</p>
-                <p>hamburguer, queijo prato</p>
-                <p>tomate, cebola, alface, molho especial</p>
-            </div>
-            <!-- Continue preenchendo os dados das outras opções -->
-        </div>
-    </main>
-    <footer >
-        <div class="navegação" >
-            <button>Menu</button>
-            <a href="pedido.html">
-                <button>lista de Pedidos</button>
-            </a>
-            <a href="https://www.instagram.com/cooperi9_/">
-                <button>instagram</button>
-            </a>
-        </div>
-    </footer>
-    <div id="popup" class="popup">
-        <div id="popupContent"></div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div>
-            <button id="saveData" style="background-color: green;">adicionar pedido</button>
-            <br>
-            <br>
-            <button id="closePopup"  style="background-color: rgb(128, 0, 0); "  >Fechar</button>
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+            <div id="popupContent"></div>
+            <button id="saveData" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow mt-4">Adicionar Pedido</button>
+            <button id="closePopup" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow mt-4">Fechar</button>
         </div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
        document.querySelectorAll('.option').forEach(option => {
-    option.addEventListener('click', () => {
-        const popup = document.getElementById('popup');
-        const content = option.getAttribute('data-content');
-        document.getElementById('popupContent').innerHTML = content;
-        document.getElementById('saveData').setAttribute('data-content', content);
-        popup.style.display = 'block';
-    });
-});
-
-document.getElementById('closePopup').addEventListener('click', () => {
-    document.getElementById('popup').style.display = 'none';
-});
-
-document.getElementById('saveData').addEventListener('click', () => {
-    const data = document.getElementById('saveData').getAttribute('data-content');
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-    pedidos.push({ content: data, timestamp: new Date().toLocaleString() });
-    localStorage.setItem('pedidos', JSON.stringify(pedidos));
-    document.getElementById('popup').style.display = 'none';
-    alert('Dados salvos!');
-});
-
-document.getElementById('procurar').addEventListener('input', () => {
-    const searchTerm = document.getElementById('procurar').value.toLowerCase();
-    document.querySelectorAll('.option').forEach(option => {
-        const optionContent = option.textContent.toLowerCase();
-        if (optionContent.includes(searchTerm)) {
-            option.style.display = 'block';
-        } else {
-            option.style.display = 'none';
-        }
-    });
-});
-
+           option.addEventListener('click', () => {
+               const popup = document.getElementById('popup');
+               const content = option.getAttribute('data-content');
+               document.getElementById('popupContent').innerHTML = content;
+               document.getElementById('saveData').setAttribute('data-content', content);
+               popup.style.display = 'block';
+           });
+       });
+       document.getElementById('closePopup').addEventListener('click', () => {
+           document.getElementById('popup').style.display = 'none';
+       });
+       document.getElementById('saveData').addEventListener('click', () => {
+           const data = document.getElementById('saveData').getAttribute('data-content');
+           const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+           pedidos.push({ content: data, timestamp: new Date().toLocaleString() });
+           localStorage.setItem('pedidos', JSON.stringify(pedidos));
+           document.getElementById('popup').style.display = 'none';
+           alert('Dados salvos!');
+       });
+       document.getElementById('procurar').addEventListener('input', () => {
+           const searchTerm = document.getElementById('procurar').value.toLowerCase();
+           document.querySelectorAll('.option').forEach(option => {
+               const optionContent = option.textContent.toLowerCase();
+               if (optionContent.includes(searchTerm)) {
+                   option.style.display = 'block';
+               } else {
+                   option.style.display = 'none';
+               }
+           });
+       });
     </script>
 </body>
 </html>
