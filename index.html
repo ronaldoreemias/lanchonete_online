@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>lanchonete online</title>
+</head>
+<body >
+    <header>
+        <h1 >lanchonete modelo</h1>
+    </header>
+    <div class="procurando">
+        <input type="text" id="procurar" placeholder="Procurar..." style="width: 70%; height: 18px; background-color: beige; border: 4px;">
+        <button style="height: 35px;" >pesquisar</button>
+    </div>
+    <main  style="height: calc(100vh - 160px); overflow-y: auto;">
+        <div >
+            <div class="option" data-content="x alcatra: pão bola com carne de alcatra, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                <div>
+                    <img src="img/R.jfif" alt="sanduiche" >
+                </div>
+                <h2 >x alcatra</h2>
+                <p>hamburguer</p>
+                <p>vem com : pão bola com carne de alcatra</p>
+                <p>hamburguer, queijo prato</p>
+                <p>tomate, cebola, alface, molho especial</p>
+            </div>
+            <div class="option" data-content="x picanha vem com : pão bola com carne de picanha, hamburguer, queijo cheddar, tomate, cebola, alface, molho especial">
+                <div>
+                    <img src="img/x picanha.jfif" alt="sanduiche">
+                </div>
+                <h2>x picanha</h2>
+                <p>hamburguer</p>
+                <p>vem com : pão bola com carne de picanha</p>
+                <p>hamburguer, queijo cheddar</p>
+                <p>tomate, cebola, alface, molho especial</p>
+            </div>
+            <div class="option" data-content="x frango vem com : pão bola com frango desfiado, hamburguer, queijo prato, tomate, cebola, alface, molho especial  ">
+                <div>
+                    <img src="img/x frango.jfif" alt="sanduiche" >
+                </div>
+                <h2>x frango</h2>
+                <p>hamburguer</p>
+                <p>vem com : pão bola com frango desfiado</p>
+                <p>hamburguer, queijo prato</p>
+                <p>tomate, cebola, alface, molho especial</p>
+            </div>
+            <div class="option" data-content="x calabresa vem com : pão bola com calabresa, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                <div >
+                    <img src="img/x calabresa.jfif" alt="sanduiche" >
+                </div>
+                <h2 >x calabresa</h2>
+                <p>hamburguer</p>
+                <p>vem com : pão bola com calabresa</p>
+                <p>hamburguer, queijo prato</p>
+                <p>tomate, cebola, alface, molho especial</p>
+            </div>
+            <div class="option" data-content="vegetariano vem com : pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial ">
+                <div>
+                    <img src="img/vegetariano.jfif" alt="sanduiche">
+                </div>
+                <h2>vegetariano</h2>
+                <p>hamburguer</p>
+                <p>vem com : pão bola com bife de soja</p>
+                <p>hamburguer, queijo prato</p>
+                <p>tomate, cebola, alface, molho especial</p>
+            </div>
+            <!-- Continue preenchendo os dados das outras opções -->
+        </div>
+    </main>
+    <footer >
+        <div class="navegação" >
+            <button>Menu</button>
+            <a href="pedido.html">
+                <button>lista de Pedidos</button>
+            </a>
+            <a href="https://www.instagram.com/cooperi9_/">
+                <button>instagram</button>
+            </a>
+        </div>
+    </footer>
+    <div id="popup" class="popup">
+        <div id="popupContent"></div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+            <button id="saveData" style="background-color: green;">adicionar pedido</button>
+            <br>
+            <br>
+            <button id="closePopup"  style="background-color: rgb(128, 0, 0); "  >Fechar</button>
+        </div>
+    </div>
+    <script>
+       document.querySelectorAll('.option').forEach(option => {
+    option.addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const content = option.getAttribute('data-content');
+        document.getElementById('popupContent').innerHTML = content;
+        document.getElementById('saveData').setAttribute('data-content', content);
+        popup.style.display = 'block';
+    });
+});
+
+document.getElementById('closePopup').addEventListener('click', () => {
+    document.getElementById('popup').style.display = 'none';
+});
+
+document.getElementById('saveData').addEventListener('click', () => {
+    const data = document.getElementById('saveData').getAttribute('data-content');
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    pedidos.push({ content: data, timestamp: new Date().toLocaleString() });
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+    document.getElementById('popup').style.display = 'none';
+    alert('Dados salvos!');
+});
+
+document.getElementById('procurar').addEventListener('input', () => {
+    const searchTerm = document.getElementById('procurar').value.toLowerCase();
+    document.querySelectorAll('.option').forEach(option => {
+        const optionContent = option.textContent.toLowerCase();
+        if (optionContent.includes(searchTerm)) {
+            option.style.display = 'block';
+        } else {
+            option.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

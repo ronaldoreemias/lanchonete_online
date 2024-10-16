@@ -1,0 +1,177 @@
+/* Estilizações Gerais */
+body {
+    background-color: #f7fafc;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    height: 40px;
+    background-image: url('/img/vegetariano.jfif');
+    color: white;
+    text-align: center;
+    padding: 16px 0;
+    font-size: smaller;
+}
+header h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+}
+
+/* Barra de pesquisa */
+.pesquisar {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+#procurar {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem 0 0 0.375rem;
+    padding: 8px 16px;
+    width: 256px;
+}
+.pesquisar button {
+    background-color: #e53e3e;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer;
+}
+
+.navegação {
+    display: flex;
+    gap: 10px;
+}
+
+.navegação button {
+    background-color: #008CBA; /* Cor de fundo azul */
+    color: white; /* Cor do texto branca */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Cantos arredondados */
+    cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+    height: 50px;
+}
+
+.navegação button:hover {
+    background-color: #005f73; /* Cor de fundo ao passar o mouse */
+}
+
+
+/* Main */
+main {
+    
+    padding: 16px;
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* Estilo das opções */
+.option {
+    background-color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    margin: 7px;
+}
+.option img {
+    width: 80%;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    margin: 0 auto;
+}
+.option h2 {
+    margin-top: 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.option p {
+    margin: 4px 0;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(10, 27, 48);
+    padding: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.952);
+    display: flex;
+    justify-content: space-around;
+}
+footer button {
+    background-color: #e53e3e;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 300px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 20px;
+    text-align: center;
+}
+.popup button {
+    background-color: #e53e3e;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.procurando{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: #ccc;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .pesquisar {
+        display: flex;
+    }
+    #procurar {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    .pesquisar button {
+        width: 100%;
+    }
+    footer {
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
