@@ -1,6 +1,6 @@
 /* Estilizações Gerais */
 body {
-    background-color: black;
+    background-color: White;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body {
 /* Cabeçalho */
 header {
     height: 40px;
-    background-image: url('/img/vegetariano.jfif');
+    background-color: black;
     color: white;
     text-align: center;
     padding: 16px 0;
