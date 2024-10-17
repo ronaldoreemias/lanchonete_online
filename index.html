@@ -69,6 +69,55 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md option" data-content="vegetariano vem com: pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                        <img src="img/cocacola1L.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                        <div class="mt-2">
+                            <h2 class="text-xl font-bold text-blue-900">cocacola 1L</h2>
+                            <p>refrigerante</p>
+                            <p>valor de 4,50 RS</p>
+                            <p>COM AÇÚCAR </p>
+                            <p>vem com copo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md option" data-content="vegetariano vem com: pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                    <img src="img/cocacola_2L.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                    <div class="mt-2">
+                        <h2 class="text-xl font-bold text-blue-900">cocacola 2L</h2>
+                        <p>refrigerante</p>
+                        <p>valor de 8,00 RS</p>
+                        <p>COM AÇÚCAR </p>
+                        <p>vem com copo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md option" data-content="vegetariano vem com: pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+                <img src="img/SUCO_LARANJA.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+                <div class="mt-2">
+                    <h2 class="text-xl font-bold text-blue-900">suco de laranja</h2>
+                    <p>suco</p>
+                    <p>valor de 3,00 RS</p>
+                    <p>COM AÇÚCAR </p>
+                    <p>vem com copo</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow-md option" data-content="vegetariano vem com: pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
+            <img src="img/SUKITA.jfif" alt="sanduiche" class="w-full h-32 object-cover rounded-md">
+            <div class="mt-2">
+                <h2 class="text-xl font-bold text-blue-900">sukita de laranja</h2>
+                <p>refrigerante</p>
+                <p>valor de 4,00 RS</p>
+                <p>COM AÇÚCAR </p>
+                <p>vem com copo</p>
+            </div>
+        </div>
+    </div>
+
                     <div class="bg-white p-4 rounded-lg shadow-md option" data-content="vegetariano vem com: pão bola com bife de soja, hamburguer, queijo prato, tomate, cebola, alface, molho especial">
                         
                         <div class="mt-2">
@@ -94,7 +143,7 @@
             </button>
             <a href="pedido.html" class="flex flex-col items-center justify-center text-white px-2 py-2">
                 <img src="img/shopping_cart_icon_264198.svg" alt="Lista de Pedidos" class="h-6 w-6 mb-1">
-                Pedidos
+                Lista de Pedidos
             </a>
             <a href="https://www.instagram.com/cooperi9_/" class="flex flex-col items-center justify-center text-white px-4 py-2">
                 <img src="img/instagram_icon_125245.svg" alt="Instagram" class="h-6 w-6 mb-1">
@@ -130,7 +179,7 @@
            pedidos.push({ content: data, timestamp: new Date().toLocaleString() });
            localStorage.setItem('pedidos', JSON.stringify(pedidos));
            document.getElementById('popup').style.display = 'none';
-           
+           alert('Dados salvos!');
        });
        document.getElementById('procurar').addEventListener('input', () => {
            const searchTerm = document.getElementById('procurar').value.toLowerCase();
