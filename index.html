@@ -130,7 +130,7 @@
            pedidos.push({ content: data, timestamp: new Date().toLocaleString() });
            localStorage.setItem('pedidos', JSON.stringify(pedidos));
            document.getElementById('popup').style.display = 'none';
-           alert('Dados salvos!');
+           
        });
        document.getElementById('procurar').addEventListener('input', () => {
            const searchTerm = document.getElementById('procurar').value.toLowerCase();
