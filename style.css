@@ -9,34 +9,29 @@ body {
     display: none;
 }
 
-/* Footer */
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #1a202c;
-    padding: 16px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    background-color: #1c1c1c; /* Uma cor mais suave, semelhante ao cinza escuro do exemplo */
+    padding: 10px 0;
 }
 
 footer button, footer a {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    text-align: center;
-    transition: background-color 0.3s;
-    display: inline-block;
-    width: 30%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-footer button:hover, footer a:hover {
-    background-color: #e64a19;
+footer img {
+    height: 24px; /* Tamanho dos ícones */
+    width: 24px;
+    margin-bottom: 5px;
 }
+
+footer button, footer a {
+    color: white;
+    text-decoration: none;
+}
+
 
 /* Responsividade */
 @media (max-width: 600px) {
