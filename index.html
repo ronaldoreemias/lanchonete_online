@@ -6,8 +6,55 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Lanchonete online</title>
+    <style>
+        
+        .lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .lock-screen-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .lock-screen input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .lock-screen button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-sans">
+
+    <div id="lockScreen" class="lock-screen">
+        <div class="lock-screen-content">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Nome">
+            <input type="password" id="password" placeholder="Senha">
+            <button onclick="unlock()">Entrar</button>
+        </div>
+    </div>
+
+
     <header class="bg-blue-900 text-white p-4 text-center" style="background-color: rgb(13, 2, 73);">
         <h1 class="text-2xl font-bold">modelo lanchonete online </h1>
         <p>sistema modelo de como pode ser o seu sistema</p>
@@ -162,6 +209,16 @@
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        function unlock() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === 'ronaldo2024' && password === 'admin12#@') {
+                document.getElementById('lockScreen').style.display = 'none';
+            } else {
+                alert('Nome ou senha incorretos');
+            }
+        }
+
        document.querySelectorAll('.option').forEach(option => {
            option.addEventListener('click', () => {
                const popup = document.getElementById('popup');
